@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container niebieski text-center" id="logout">
+    <h1>Jesteś wylogowany </h1>
+    <p>
+       Dziękujemy blal 
+    </p>
+    <button class="btn btn-success"><a href="{% url 'homepage' %}" style="color: #ffff;">Wróć do strony domowej</a></button>
+</div>
+
+
+
+
+{% endblock %}

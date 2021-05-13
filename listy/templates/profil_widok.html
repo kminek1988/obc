@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+ <section id="profil_view">
+<!--powitanie użytkownika-->
+     <div class="container bialy" id="powitanie">
+  {% if user.is_authenticated %}
+<div class="nav-item dropdown nonestyle">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Nowy Kontakt <i class="fas fa-user-plus"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <section id="Nowy_Kontakt">
+{% include 'ContactForm.html' %}
+  </section>
+
+        </div>
+
+</div>
+{% else %}
+   <p>*Aby dodać Obrotnego do kontaktów musisz być zalogowany</p>
+  {% endif %}
+
+<!--  koniec powitania    -->
+<!--     srodek     -->
+    <div class="container" id="srodek">
+<div class="row">
+    <div class="col-md-4 offset-md-2 " id="profilimg">
+        <img src="{{ profil.profilimg.url }}" alt="Circle Image" class="img-raised img-fluid " id="zdjecieProfilowe">
+
+                    </div>
+
+<!--dane osobowe                    -->
+    <div class="col-md-6 lodowa" id="dane">
+
+               <ul class="DaneOsobowe nonstyle">
+                                 <li>{{profil.imie}} {{ profil.nazwisko }}</li>
+                                 <li>{{profil.miasto.parent}}  {{ profil.kod}}</li>
+                                 <li>{{ profil.miasto}}</li>
+                                 <li>{{ profil.profesja}}</li>
+
+
+                             </ul>
+
+
+
+      </div>
+</div>
+<!--                    koniec danych osobowych-->
+<!--        początek perspektywy -->
+<div class="row cien " id="opis">
+    <h4>Opis Obrotnego {{ profil }}</h4>
+ <p>{{ profil.opis }} </p>
+</div>
+<!--        koniec perspectywy -->
+</div>
+     </div>
+     <!--portfolio-->
+      <h1 class="lodowa">Galeria Obrotnego {{ profil }}</h1>
+ <div class="container-fluid portfolio">
+
+     <div class="row">
+
+<div class=" port port-1">
+<img src="{{ profil.port1.url }}" alt="" style="width:100%; height: 100%;">
+         </div>
+<div class=" port port-2">
+<img src="{{ profil.port2.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class=" port port-3">
+<img src="{{ profil.port3.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class="port port-4">
+<img src="{{ profil.port4.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class="port port-5">
+<img src="{{ profil.port5.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+     </div>
+ </div>
+
+ </section>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

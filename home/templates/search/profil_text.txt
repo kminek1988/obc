@@ -1,0 +1,2 @@
+{{ object.profesja }}
+{{ object.miasto }}

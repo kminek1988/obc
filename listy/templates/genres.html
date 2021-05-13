@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<section id="listamiast">
+
+{% load mptt_tags %}
+
+<div class="container-fluid">
+    <h1 CLASS="bialy"> Wybierz miasto</h1>
+<ul>
+    {% for letter in letter %}
+    <li class="linia bialy"><button class="btn btn-outline-light bialy"><a href="#{{letter.title}}" class="bialy">{{ letter.title }}</a> </button> </li>{% endfor %}
+</ul>
+
+
+<section id="A">
+    {% include 'includes/a.html' %}
+</section>
+<section id="B">
+
+    {% include 'includes/b.html' %}
+
+
+
+<!--    koniec kontenera-->
+</section>
+    <section id="C">
+    <h1>C</h1>
+    {% include 'includes/c.html' %}
+
+
+
+<!--    koniec kontenera-->
+</section>
+
+    <section id="K">
+    {% include 'includes/k.html' %}
+
+
+
+<!--    koniec kontenera-->
+</section>
+</div>
+
+
+    </section>
+<!--koniec głównej sekcji-->
+{% endblock %}
+
+
+

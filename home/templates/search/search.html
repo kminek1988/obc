@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+    {% block content %}
+<section id="szukajka">
+    <div class="container lodowa">
+<h1>Szukaj Obrotneghhhhho:</h1>
+
+
+    <form method="get" action=".">
+
+
+            {{ form|crispy }}
+
+                    <input type="submit" value="Search" class="btn btn-outline-dark">
+
+        {% if query %}
+            <h3 style="padding-top:50px;">Wyniki wyszukiwania:</h3>
+
+            {% for result in page.object_list  %}
+<ul style="display:inline-block;" class="nonstyle">
+           <li class="inline-block card text-center">
+                    <a href="{{ result.object.get_absolute_url }}">{{result.object.user }}<br>{{ result.object.profesja }}<br>{{ result.object.miasto }}<br>
+                    <img src="{{ result.object.profilimg.url}}" class="img-thumbnail " style="width:200px; height:200px;"></a>
+                </li>
+
+</ul>
+
+            {% empty %}
+                <p>Nic nie znaleziono :(</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+    </form>
+    </div>
+</section>
+{% endblock %}

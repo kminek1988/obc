@@ -1,0 +1,4 @@
+{{ object.imie }}
+{{object.kategoria}}
+{{ object.parent }}
+{{ object.text }}

@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block content %}
+<!--search bar   -->
+
+<!--    koniec   bar-->
+<!-- ======= Intro Section ======= -->
+  <section id="intro" >
+
+    <div class="intro-text">
+      <h2><strong>Witaj na portalu<br>Obrotni Biało-Czerwoni</strong> </h2>
+      <p>Informacje, serwis, pomoc, znajomości </p>
+
+      <!-- Search form -->
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+  <img src="{% static 'img/logo.png'%}">
+
+
+        </div>
+      </div>
+      </div>
+
+
+
+    <div class="product-screens">
+
+      <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
+        <img src="{% static 'img/product1.png' %}" alt="">
+      </div>
+
+      <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
+        <img src="{% static 'img/product2.png' %}" alt="">
+      </div>
+
+      <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
+        <img src="{% static 'img/product3.png'%}" alt="">
+      </div>
+
+    </div>
+
+  </section><!-- End Intro Section -->
+
+    <!--Carousel Wrapper-->
+<div class="container-fluid section-bg cien-dol" id="karuzela">
+ <div class="row">
+     
+
+<!--karuzela-->
+<div class="col-md-8 offset-md-2">
+    <h1>Aktualności</h1>
+    <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view">
+            <img class="d-block w-100" src="{% static 'img/mariusz/HeidelbergMiasto.jpg'%}">
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>Portal został stworzony dla Polonii w Niemczech. Pochwalcie się swoim fachem, umiejętnościami
+            hobby czy pasjami.<br>
+                Stwórzmy miejsce, w którym znajdziemy skuteczną pomoc, profesjonalne usługi świadczone przez rodaków,
+                ludzi z podobnymi pasjami czy hobby.<br>
+                Zintegrujmy się tworząc prawdziwą, zgraną społeczność.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="{% static 'img/mariusz/HeidelbergRezydencja.jpg'%}" alt="Second slide">
+            <div class="mask rgba-black-strong"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="{% static 'img/mariusz/zamek.jpg'%}" alt="Third slide">
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </div>
+      </div>
+      <!--/.Slides-->
+      <!--Controls-->
+      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->    
+</div>  
+    
+     
+        </div>
+  </div>
+<!--koniec karuzeli-->
+
+ <!-- ======= Featuress Section ======= -->
+    <section id="features">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 offset-lg-4">
+            <div class="section-header wow fadeIn" data-wow-duration="1s">
+              <h3 class="section-title">O projekcie Obrotni Biało-Czerwoni</h3>
+      
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-5 features-img">
+            <img src="{% static 'img/product3.png' %}" alt="" class="wow fadeInLeft" style="padding-top: 100px;">
+              
+                            
+          </div>
+
+          <div class="col-lg-8 col-md-7 ">
+
+            <div class="row">
+
+              <div class="col-lg-6 col-md-6">
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                <h4 class="title"><a href="">Dla kogo?</a></h4>
+                <p class="description">Projekt powstał z myślą o rodakach mieszkających w Niemczech. Sama mieszkam w Badenii, dlatego myślę, że rozumiem podstawowe potrzeby Polaków na emigracji.Taki system mógł napisać ktoś, kto sam napotkał pewne problemy na swojej drodze. Bo kto z nas nie szukał rodaków w internecie, którzy oferują pomoc, swoje usługi, czy po prostu, lubią to co my?</p>
+              </div>
+            
+                  <div class="col-lg-6 col-md-6 ">
+                <h4 class="title"><a href="">Jeśli szukasz...</a></h4>
+                <p class="description">Właśnie! Wielu z nas z różnych przyczyn szuka usług oferowanych przez naszych rodaków. Powodów jest mnóstwo, a np. bariera językowa, chęć poznania rodaków w pobliżu, wiedza o tym, że Polak zrobi to lepiej! Jeśli choć raz szukałeś, poleć OBC znajomym, byśmy szybko stworzyli funkcjonalny portal intormacyjny. Buduj OBC z nami dla własnego kompfortu :) </p>
+              </div>
+              <div class="col-lg-6 col-md-6" data-wow-delay="0.2s">
+                <div class="icon"><i class="ion-social-buffer-outline"></i></div>
+                <h4 class="title"><a href="">Jeśli chcesz być znaleziony...</a></h4>
+                  <p class="description">Dołącz do obrotnych Polaków, którzy mają fach w ręku, chęć do pomagania, oferowania usług, dzielenia się pasjami, czy urozmaicenia swojego życia na emigracji. <a href="{% url 'rejestracja' %}">Zarejestruj się już dziś!</a> Stań się częścią unikalnego projektu przeznaczonego tylko dla nas!</p>
+              </div>
+              <div class="col-lg-6 col-md-6" data-wow-delay="0.3s">
+                <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+                <h4 class="title"><a href="">Miejsce w internecie...</a></h4>
+                  <p class="description">Tylko dla nas i o nas! Wspólnymi siłami możemy stworzyć miejsce, w którym zawsze znajdziemy to, czego szukamy. Stań się częścią projektu i "pokoloruj swój świat". Czekam na wszystkie wasze recenzje, opinie i uwagi na <a href="https://www.facebook.com/eCafeVison">facebooku </a> Polub OBC, a pomożesz projektowi dotrzeć do większej liczby odbiorców </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Featuress Section -->
+<!-- ======= More Features Section ======= -->
+    <section id="more-features" class="section-bg">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Jak to działa?</h3>
+         
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft">
+                    <h5>Tytuł filmu</h5>
+       <iframe width="400" height="300" src="https://www.youtube.com/embed/B5FrEFHXMZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInRight">
+                <h5>Tytuł filmu</h5>
+              <iframe width="400" height="300" src="https://www.youtube.com/embed/B5FrEFHXMZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft">
+                    <h5>Tytuł filmu</h5>
+ <iframe width="400" height="300" src="https://www.youtube.com/embed/B5FrEFHXMZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInRight">
+                    <h5>Tytuł filmu</h5>
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/B5FrEFHXMZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End More Features Section -->
+
+<!--koniec o projekcie-->
+{% endblock %}

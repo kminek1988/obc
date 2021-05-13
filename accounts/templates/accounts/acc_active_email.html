@@ -1,0 +1,12 @@
+
+{% autoescape off %}
+Cześć {{ user.username }},
+Pozostał ostatni krok: aktywuj swoje konto klikając link poniżej,
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+Jeśli to nie ty, zignoruj ten mail
+{% endautoescape %}
+Polub naszą stronę na FB, dzięki której możemy mieć z tobą kontakt
+https://www.facebook.com/eCafeVison
+Jeśli masz jakieś rady, uwagi lub chcesz wiedzieć więcej o Obrotnych Biało-Czerwonych napisz na:
+info@obcbaden.de
+Życzymy miłej zabawy z Obrotnymi Biało-Czerwonymi

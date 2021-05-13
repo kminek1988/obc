@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section id="listaprofili" class="bialy lodowa">
+<div class="container-fluid">
+        {% for category in cat %}
+    <h1> {{ category.title }} </h1>
+
+    {% endfor %}
+{% for category in category_children %}
+    <a href="{% url 'subkategoria' category.id %}" >{{ category.title}}</a>
+    {% endfor %}
+    {% for profil in profil %}
+        <ul style="display:inline-block;">
+
+                 <li class="inline-block"><a href="{{ profil.get_absolute_url }}">
+                     <button class="btn btn-outline-light bialy img-fluid">{{ profil }}<br>
+                     <img src="{{ profil.profilimg.url}}" class="mx-auto d-block inline-block " style="width:200px; height:200px;"></button>
+
+                </a>
+                </li>
+
+        </ul>
+
+    {% endfor %}
+
+
+</div>
+
+
+</section>
+
+
+{% if page.has_other_pages %}
+  <ul class="pagination">
+    {% if page.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in page.paginator.page_range %}
+      {% if page.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+
+{% endblock %}

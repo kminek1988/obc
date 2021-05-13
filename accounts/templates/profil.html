@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<title>Twój profil</title>
+
+ <section id="profil">
+<!--powitanie użytkownika-->
+     <div class="container" id="powitanie">
+         
+<div class="row lodowa">
+            <h1>Witaj {{ user }} w edytorze profilu</h1>
+     <h2>Dopracuj swój Profil! Świat chce Cię poznać! </h2>
+         </div>
+     </div>
+  
+ 
+<!--  koniec powitania    -->
+
+<!--     srodek     -->
+    <div class="container" id="srodek">
+<div class="row">
+    <div class="col-md-4 offset-md-2 " id="profilimg">                  
+        <img src="{{ user.profil.profilimg.url }}" alt="Circle Image" class="img-raised img-fluid " id="zdjecieProfilowe">
+	                
+                    </div>
+                    
+<!--dane osobowe                    -->
+    <div class="col-md-6 lodowa" id="dane">
+             
+               <ul class="DaneOsobowe nonstyle">
+                                 <li>{{user.profil.imie}} {{ user.profil.nazwisko }}</li>
+                                 <li>{{user.profil.miasto.parent}}  {{ user.profil.kod}}</li>
+                                 <li>{{ user.profil.miasto}}</li>
+                                 <li>{{ user.profil.profesja}}</li>
+                   <li>{{ user.profil.kategoria }}</li>
+
+                              
+
+                             </ul>
+
+              
+
+      </div>
+</div>
+<!--                    koniec danych osobowych-->
+<!--        początek perspektywy -->
+<div class="row cien " id="opis">
+    <h4>Twój opis</h4>
+ <p>{{ user.profil.opis }} </p>
+</div>
+<!--        koniec perspectywy -->
+</div>
+<!--koniec środka-->
+
+<!--buttony-->
+<div class="container padding-dolny" id="przyciski">
+<div class="row padding-dolny">
+<div class="col-md-3">
+    <button type="button" class="btn  btn-light btn-block"><a href="{% url 'logout' %}">Wyloguj się</a></button>
+</div>
+    <div class="col-md-3">
+    <button type="button" class="btn btn-light btn-block"><a href="{% url 'edycja' %}">Edytuj profil</a></button>
+</div>
+    <div class="col-md-3">
+    <button type="button" class="btn btn-light btn-block"><a href="{% url 'homepage' %}">Strona domowa</a></button>
+</div>
+        <div class="col-md-3">
+    <button type="button" class="btn btn-light btn-block czerw"><a href="{% url 'postman:inbox' %}"> poczta</a></button>
+</div>
+
+</div>
+
+</div>
+<!--poczta-->
+<!--portfolio-->
+      <h1 class="lodowa">Twoja galeria</h1>
+ <div class="container-fluid portfolio">
+             
+     <div class="row">
+
+<div class=" port port-1">
+<img src="{{ user.profil.port1.url }}" alt="" style="width:100%; height: 100%;">
+         </div>
+<div class=" port port-2">
+<img src="{{ user.profil.port2.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class=" port port-3">
+<img src="{{ user.profil.port3.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class="port port-4">
+<img src="{{ user.profil.port4.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+<div class="port port-5">
+<img src="{{ user.profil.port5.url }}" alt="" style="width:100%;  height: 100%;">
+         </div>
+     </div>
+ </div>
+
+     
+     
+ </section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

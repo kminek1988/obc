@@ -1,0 +1,11 @@
+{% block content %}
+<h1 class="bialy">B</h1>
+<ul>
+{% for category in b %}
+    <li class="linia bialy"> <a href="/kategoria/{{ category.id }}">{{ category.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

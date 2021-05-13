@@ -1,0 +1,25 @@
+{% extends "postman/base_folder.html" %}
+{% load postman_tags %}
+{% load i18n postman_tags %}{% load pagination_tags %}
+
+{% block pm_folder_title %}{% trans "Deleted Messages" %}{% endblock %}
+<div class="btn-toolbar" role="toolbar">
+									{% autopaginate pm_messages %}
+								{% if pm_messages %}
+
+
+									 <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
+									{% block pm_form_buttons %}<span id="pm_buttons">
+									{% block pm_delete_button %}<button type="submit" class="btn btn-link" onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>{% endblock %}
+									{% block pm_archive_button %}<button type="submit" class="btn btn-link" onclick="this.form.action='{% url 'postman:archive' %}'">{% trans "Archive" %}</button>{% endblock %}</span></form>
+
+	{% endblock %}
+
+
+									</div>	{% endif %}
+{% block pm_subject %}
+     {% include "postman/inc_subject_ex.html" %}
+{% endblock %}
+{% block pm_footer_info %}
+<p>{% trans "Messages in this folder can be removed from time to time. For long term storage, use instead the archive folder." %}</p>
+{% endblock %}

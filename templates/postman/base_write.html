@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% load postman_tags %}
+{% block extrahead %}{{ block.super }}
+{% if autocompleter_app.is_active %}{# using the available admin jQuery is enough #}
+{# should not be necessary since AS v1.3 with AJAX_SELECT_BOOTSTRAP set #}
+{#<script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>#}
+{% endif %}
+{{ form.media }}{# for ajax_selects (v1.3.6 at least) #}
+{% endblock %}
+{% block content %}
+<section id="napisz" class="pad50">
+ <div id="postman" class="container">
+<h1>{% block pm_write_title %}{% endblock %}</h1>
+<div class="row">
+<div class="col-md-3 card  pad50">
+
+<ul id="postman_menu" class="nonstyle">{% postman_unread as unread_count %}
+ <li><a href="{% url 'postman:inbox' %}">{% trans "Inbox" %}{% if unread_count %} <strong>({{ unread_count }})</strong>{% endif %}</a></li>
+ <li><a href="{% url 'postman:sent' %}">{% trans "Sent Messages" %}</a></li>
+ <li><a href="{% url 'postman:write' %}">{% trans "Write" %}</a></li>
+ <li><a href="{% url 'postman:archives' %}">{% trans "Archives" %}</a></li>
+ <li><a href="{% url 'postman:trash' %}">{% trans "Trash" %}</a></li>
+</ul>
+
+</div>
+
+<div class="col-md-6 card">
+    <form action="{% if next_url %}?next={{ next_url|urlencode }}{% endif %}" method="post">{% csrf_token %}
+<table>
+{% block pm_write_recipient %}{% endblock %}
+{{ form.as_table }}
+</table>
+<button type="submit" class="btn btn-outline-dark btn-block">{% trans "Send" %}</button>
+</form>
+</div>
+   <div class="col-md-3"?>
+            {% include 'ContactView.html' %}
+        </div>
+</div><!-- koniec rowa-->
+</div><!--koniec kontenerra-->
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container cien" id="ListaKontaktow">
+    <div class="col-md-12">
+       <div class="nav-item dropdown nonestyle">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Nowy Kontakt <i class="fas fa-user-plus"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <section id="Nowy_Kontakt">
+{% include 'ContactForm.html' %}
+  </section>
+
+        </div>
+            <h3>Lista kontaktów</h3>
+<ul id="ContactList">{% for contact in contact %}
+            <li class="nav-item dropdown">
+          <a class="nav-link  btn btn-outline-primary" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ contact.name}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="padding-left: 10px;">
+            <li style="list-style: none;">{{contact.imie}} {{ contact.nazwisko }}</li>
+            <li>{{ contact.profesja }}</li>
+            <li>{{ contact.miasto }}</li>
+          </ul>
+{% endfor %}
+            </li> </ul>
+             </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+{% endblock %}

@@ -1,0 +1,154 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!doctype html>
+
+
+<html lang="pl">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- CSS only -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+<!--linki dodatków     -->
+<link type="text/css" media="all" rel="stylesheet" href="{% static 'postman/css/postman.css' %}">
+<!--      Avilion -->
+      
+<script src="{% static '/js/main.js' %}"></script>
+      <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<!--search bar -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+<!--  <link href="{% static '/avi/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">-->
+<!--  <link href="{% static '/avi/ionicons/css/ionicons.min.css'%}" rel="stylesheet">-->
+<!--  <link href="{% static '/avi/animate.css/animate.min.css' %}" rel="stylesheet">-->
+<!--  <link href="{% static '/avi/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">-->
+<!--  <link href="{% static '/avi/venobox/venobox.css' %}" rel="stylesheet">-->
+
+
+    <title>Obrotni Biało-Czerwoni </title>
+        <title>{% block title %}{% endblock %}</title>
+
+
+{% block extrahead %}{% endblock %}
+  </head>
+   <body>
+
+  <!-- ======= Header ======= -->
+<nav class="navbar">
+  <div class="d-inline-flex justify-content-between" style="width:100%;">
+    <ul class="nav navbar-nav d-inline-flex">
+      <li class="nav-item">
+        <ul class="list-inline-mb-0">
+          <li class="list-inline-item">  <a href="{% url 'homepage' %}">Obrotni Biało - Czerwoni Baden-Wurtenberg</a></li>
+          <li class="list-inline-item"><a href="#gallery" style="padding-left: 25px;">Kontakt</a></li>
+            <li class="list-inline-item"><a href="{% url 'miasta'%}">Miasta</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="nav list-inline">
+      <li class="list-inline-item pt-0 pr-1 pb-0 pl-0"><a href="{% url 'profil'  %}" style="color: blue;">Twój profil </a></li>
+      <li class="list-inline-item"><a href="{% url 'login' %}">Zaloguj się</a></li>
+      <li class="list-inline-item"><a href="{% url 'logout' %}">Wyloguj się</a></li>
+        <li class="list-inline-item"><a href="{% url 'rejestracja' %}">Zarejestruj się</a></li>
+        <li class="list-inline-item"><a href="{% url 'haystack_search' %}"><i class="fas fa-search" style="color: black;"></i>Szukajka</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+
+
+{% block postman_menu %}{% endblock %}
+
+
+<section class="wrapper">
+        {% block content %}
+
+       {% endblock %}
+</section>
+       
+    <!--       fooooooooooooooooooooooteeeeeeeeeeeeeeeeeeeeeeeeeerrrrrrrrrrrrrrrrrrrrrr-->
+ <footer class="footer">
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-3">
+                  <ul class="nonstyle">
+                  <li><a href="#about" >O projekcie</a></li>
+                      <li class="menu-has-children"><a href="{% url 'miasta'%}">Miasta</a>
+          </li>
+          
+          <li><a href="#gallery">Kontakt</a></li>
+                  <li></ul>
+    </div>
+    <div class="col-md-3">
+                <ul class="nonstyle" >
+            <li ><a href="{% url 'profil'  %}" style="color: blue;">Twój profil </a> </li>
+
+          <li><a href="{% url 'login' %}">Zaloguj się</a></li>
+          <li><a href="{% url 'logout' %}">Wyloguj się</a></li>
+            <li><a href="{% url 'rejestracja' %}">Zarejestruj się</a></li>
+        </ul>
+        </div>
+    <div class="col-md-3">
+        <ul style="nonstyle">
+        <li><a href="{% url 'polityka' %}">Polityka prywatności</a> </li>
+        <li><a href="{% url 'rodo' %}">RODO na OBC</a> </li>
+        <li><a href="{% url 'regulamin' %}"> Regulamin </a> </li>
+        </ul>
+        </div>
+    <div class="col-md-3">
+            <ul style="nonstyle">
+        <li><a href="#">Facebook</a> </li>
+        <li><a href="#">Whatsapp</a> </li>
+        <li><a href="#">Youtube </a> </li>
+        </ul>    
+    </div>    
+    </div>
+<div class="container text-center" id="footer2">
+<div class="row text-center d-flex justify-content-center">
+    <p class="centrum">&copy; Copyright 2021 Joanna Malec </p></div>
+<div class="row text-center d-flex justify-content-center">
+    <p class="text-center">Odwiedź stronę agencji <a href="http://www.ecv-online.com/">E-Cafe Vision</a>, dzięki której powstał portal OBC </p>
+    
+</div>  
+<div class="row text-center d-flex justify-content-center">
+<img src="{% static 'img/ecv.png'%}" style="width: 100px;">
+</div>    
+</div>
+</div>       
+       
+</footer>   
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+<!--   drill down menu-->
+   <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
+

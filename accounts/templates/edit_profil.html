@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section>
+    <div class="container-fluid  lodowa pad50">
+    <div class="text-center">
+    <h1 class="bialy">{{user.username}}</h1>
+    <h3 class="bialy">Edytuj swój profil.</h3>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="bialy">
+        {% csrf_token %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-10 offset-md-2">
+        <img src="{{ user.profil.profilimg.url }}" alt="Circle Image" class="img-raised img-fluid " id="zdjecieProfilowe">
+        </div>
+           </div>
+    <div class="col-md-6">
+        <form>
+{% crispy form %}
+
+
+
+
+
+        <button type="submit" class="btn btn-outline-light btn-block">Potwierdź</button>
+    </form>
+
+    </div></div>
+</section>
+
+{% endblock %}
